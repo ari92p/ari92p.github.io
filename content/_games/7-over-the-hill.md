@@ -4,4 +4,5 @@ status: trying
 order: 7
 c1: "#c9772a"
 c2: "#4a2410"
+image: /static/img/games/over-the-hill.svg
 ---
