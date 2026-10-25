@@ -2,10 +2,11 @@
 {% for g in include.items %}
 <tr>
 <td class="gm-l">
-{% if g.link %}<a class="mk-t gm-name" href="{{ g.link }}"><b>{{ g.title }}</b></a>{% else %}<b class="gm-name">{{ g.title }}</b>{% endif %}
 {% if g.image %}<img class="gm-box" src="{{ g.image }}" width="120" height="160" alt="{{ g.title }}">{% else %}<div class="gm-box gm-cover" style="background:linear-gradient(160deg,{{ g.c1 | default: '#2b3a55' }},{{ g.c2 | default: '#0d1220' }})" aria-hidden="true"><span>{{ g.title }}</span></div>{% endif %}
 </td>
-<td class="mk-txt">{{ g.content | markdownify }}</td>
+<td class="mk-txt">
+{% if g.link %}<a class="mk-t gm-name" href="{{ g.link }}"><b>{{ g.title }}</b></a>{% else %}<b class="gm-name">{{ g.title }}</b>{% endif %}
+{{ g.content | markdownify }}</td>
 </tr>
 {% endfor %}
 </table>
