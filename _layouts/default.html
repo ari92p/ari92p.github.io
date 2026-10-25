@@ -51,10 +51,10 @@
 {% if site.pixiv_url != "" %}<a class="lg gold" href="{{ site.pixiv_url }}" target="_blank" rel="noopener noreferrer">Pixiv</a>{% else %}<span class="lg gold off" title="Coming soon">Pixiv</span>{% endif %}
 <a class="lg tw" href="{{ site.twitter_url }}" target="_blank" rel="noopener noreferrer">twitter</a>
 </div>
+<hr class="thin">
 <div class="mp" id="mp" hidden>
-<div class="mp-lcd" id="mp-title" aria-live="off">...</div>
+<div class="mp-lcd" id="mp-time" aria-hidden="true">00:00</div>
 <div class="mp-btns"><button type="button" id="mp-prev" aria-label="Previous track">&#9664;&#9664;</button><button type="button" id="mp-play" aria-label="Play">&#9654;</button><button type="button" id="mp-next" aria-label="Next track">&#9654;&#9654;</button></div>
-<select id="mp-station" aria-label="Music station"></select>
 <input type="range" id="mp-vol" min="0" max="100" value="60" aria-label="Volume">
 </div>
 </aside>
