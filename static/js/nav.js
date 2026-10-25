@@ -41,5 +41,4 @@ var a=e.target.closest&&e.target.closest('a');
 if(!internal(a))return;
 e.preventDefault();go(a.href,true)});
 window.addEventListener('popstate',function(){if(location.pathname!==cur)go(location.href,false)});
-if('scrollRestoration' in history)history.scrollRestoration='manual';
 })();

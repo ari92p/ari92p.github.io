@@ -316,3 +316,8 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .mp-btns button svg{display:block;pointer-events:none}
 .mp-btns button.mp-tog{display:none}
 @media (max-width:640px){.mp-btns button.mp-tog{display:none}}
+@media (max-width:640px){
+html{min-height:0;overflow-y:auto;scrollbar-gutter:auto;overflow-anchor:none;overscroll-behavior-x:none}
+.page{min-height:0}
+body{overflow-anchor:none}
+}
