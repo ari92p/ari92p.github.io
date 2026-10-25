@@ -9,7 +9,7 @@ Jekyll site for GitHub Pages. You write Markdown, GitHub builds the HTML.
 | `content/` | All your writing as Markdown: `_posts`, `_projects`, `_library`, `_inventory`, `_games` |
 | `pages/` | The pages themselves: start page, project list, library, inventory, games, 404 (their addresses are set with `permalink:`) |
 | `_layouts/` | The shared frame of every page: menu, black bar, footer |
-| `static/` | Everything the browser loads: `css/`, `js/`, `fonts/`, `img/`, `favicons/` |
+| `static/` | Everything the browser loads: `css/`, `js/`, `fonts/`, `img/`, `favicons/`, `audio/` |
 | `_tools/` | Scripts that draw the buttons and icons, and the project template (not part of the site) |
 
 In the site root only the files that have to be there remain: `_config.yml`, `Gemfile`, `favicon.ico` and this README.
@@ -44,11 +44,12 @@ In the site root only the files that have to be there remain: `_config.yml`, `Ge
 - **Links in the black bar:** `_config.yml` (`github_url`, `discord_url`, `pixiv_url`, `twitter_url`). Leave `pixiv_url` empty until the account exists.
 - **Profile photo:** `static/img/profile.jpg`. **Background:** `static/img/background.jpg`, enabled in `static/css/theme.css`.
 - **Menu buttons and arrow:** pixel images in `static/img/`, drawn by `_tools/make_buttons.py`.
+- **Music player:** put `.mp3` or `.ogg` files in `static/audio/` and run `python3 _tools/make_playlist.py`. The player (`static/js/player.js`) plays them in a fixed random order and keeps playing between pages, because `static/js/nav.js` swaps the page content without reloading. After a browser refresh it continues at the same spot, but sound stops for a moment, and some browsers need one click on Play first.
 - **Look of every page:** `_layouts/default.html` and `static/css/style.css`.
 
 ## Pictures that are not there yet
 
-Gray placeholder boxes (class `ph`) in the project pages are hidden by `static/css/style.css`, together with the frames and the gallery that only hold placeholders. To show a picture, replace the `<div class="ph …">…</div>` in the page by an `<img>` tag. The frame appears again by itself. Inventory and Market rows only get a photo column when the item has an `image:` line.
+Gray placeholder boxes (class `ph`) in the project pages are hidden by `static/css/style.css`, together with the frames and the gallery that only hold placeholders. To show a picture, replace the `<div class="ph …">…</div>` in the page by an `<img>` tag. The frame appears again by itself. Inventory and Games rows only get a photo column when the item has an `image:` line.
 
 ## Fonts, icons and meta tags
 

@@ -277,3 +277,9 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .mp-btns button:active{border-color:#444 #fff #fff #444}
 .mp input[type=range]{width:100%;margin:0;accent-color:#5dff5d;cursor:var(--cursor-default,pointer)}
 .mp-btns button:focus-visible,.mp input:focus-visible{outline:2px solid #e7a21e;outline-offset:1px}
+.mp-time{font:17px/1 "VT323",monospace;color:#5dff5d;background:linear-gradient(#0b2b0b,#041504);border:2px solid;border-color:#444 #cfcfcf #cfcfcf #444;text-shadow:0 0 5px #2c9c2c;height:24px;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;white-space:nowrap}
+.mp-list{position:relative;list-style:none;margin:2px 0 0;padding:0;height:150px;overflow-y:auto;background:#050f05;border:2px solid;border-color:#444 #cfcfcf #cfcfcf #444;scrollbar-width:thin;scrollbar-color:#2c9c2c #050f05}
+.mp-list button{display:block;width:100%;text-align:left;padding:3px 5px;border:0;border-bottom:1px solid #0e2a0e;background:transparent;color:#5dff5d;font:700 11px/1.2 Arial,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:var(--cursor-default,pointer)}
+.mp-list button:hover{background:#0f3f0f}
+.mp-list button.on{background:#2c9c2c;color:#fff}
+.mp-list button:focus-visible{outline:2px solid #e7a21e;outline-offset:-2px}
