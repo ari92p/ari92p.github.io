@@ -24,7 +24,7 @@ features:
 </div>
 
 <div class="pj-row">
-<p><b>This Site:</b> every page is a Markdown file. Posts, projects, library tabs and market items each have their own folder, and a new entry is just a new file. The menu buttons and the red arrow are drawn pixel by pixel by a small script.</p>
+<p><b>This Site:</b> every page is a Markdown file. Posts, projects, library tabs, inventory items and games each have their own folder, and a new entry is just a new file. The menu buttons and the red arrow are drawn pixel by pixel by a small script.</p>
 </div>
 
 <div class="pj-row clear">

@@ -11,6 +11,6 @@ Here is what you find:
 - **Projects** shows what I made, one page per project.
 - **Library** holds tools and notes I like to keep at hand.
 - **Inventory** lists the gear I own and use.
-- **Market** has things I sell.
+- **Games** shows what I am playing right now.
 
 The links to GitHub, Discord, Pixiv and Twitter are in the black bar.

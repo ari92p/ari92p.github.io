@@ -96,18 +96,26 @@ def shape_library(s):
                 if y in (y0, y0 + 5) or x in (x0, x1 - 1) or x in (x0 + 3, x0 + 4):
                     s.add((x, y))
 
-def shape_market(s):
-    # a shopping bag with a handle
-    for y in range(14, 33):
-        for x in range(21, 42):
-            if y in (14, 32) or x in (21, 41) or (y in range(19, 22) and x in range(25, 38) and False):
+def shape_games(s):
+    # a game controller: rounded body, d-pad on the left, two buttons on the right
+    x0, x1, y0, y1, r = 13, 49, 9, 31, 7
+    def inside(x, y, k=0):
+        cx = min(max(x, x0 + r - k), x1 - r + k)
+        cy = min(max(y, y0 + r - k), y1 - r + k)
+        return x0 + k <= x <= x1 - k and y0 + k <= y <= y1 - k and math.hypot(x - cx, y - cy) <= r - k + 0.5
+    for y in range(y0, y1 + 1):
+        for x in range(x0, x1 + 1):
+            if inside(x, y) and not inside(x, y, 3):
                 s.add((x, y))
-    cx, cy = 31, 15
-    for y in range(5, 16):
-        for x in range(23, 40):
-            d = math.hypot(x - cx, (y - cy) * 1.1)
-            if 6.0 <= d <= 8.2 and y <= 14:
+    for y in range(17, 24):
+        for x in range(19, 26):
+            if (y in (19, 20, 21)) or (x in (21, 22, 23)):
                 s.add((x, y))
+    for (cx, cy) in ((38, 18), (43, 22)):
+        for y in range(cy - 2, cy + 3):
+            for x in range(cx - 2, cx + 3):
+                if math.hypot(x - cx, y - cy) <= 2.2:
+                    s.add((x, y))
 
 def shape_inventory(s):
     # a PC tower: case, two drive slots, a power button
@@ -189,6 +197,6 @@ if __name__ == "__main__":
     button("projects", "PROJECTS", shape_projects)
     button("library", "LIBRARY", shape_library)
     button("inventory", "INVENTORY", shape_inventory)
-    button("market", "MARKET", shape_market)
+    button("games", "GAMES", shape_games)
     arrow()
     print("ok")

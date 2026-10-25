@@ -6,8 +6,8 @@ Jekyll site for GitHub Pages. You write Markdown, GitHub builds the HTML.
 
 | Folder | What is in it |
 | --- | --- |
-| `content/` | All your writing as Markdown: `_posts`, `_projects`, `_library`, `_inventory`, `_market` |
-| `pages/` | The pages themselves: start page, project list, library, inventory, market, 404 (their addresses are set with `permalink:`) |
+| `content/` | All your writing as Markdown: `_posts`, `_projects`, `_library`, `_inventory`, `_games` |
+| `pages/` | The pages themselves: start page, project list, library, inventory, games, 404 (their addresses are set with `permalink:`) |
 | `_layouts/` | The shared frame of every page: menu, black bar, footer |
 | `static/` | Everything the browser loads: `css/`, `js/`, `fonts/`, `img/`, `favicons/` |
 | `_tools/` | Scripts that draw the buttons and icons, and the project template (not part of the site) |
@@ -22,26 +22,23 @@ In the site root only the files that have to be there remain: `_config.yml`, `Ge
 | PROJECTS | Overview list of everything I built. Each project has its own page in the style of the old product pages. | one file per project in `content/_projects/` (template: `_tools/project-template.md`) |
 | LIBRARY | Tabs: What's on my mac, Useful stuff. | one file per tab in `content/_library/` |
 | INVENTORY | Things you own: gaming PC, NAS, peripherals, settings. Grouped by `category`. | one file per item in `content/_inventory/` |
-| MARKET | Things you sell, with links to eBay, Kleinanzeigen, Vinted or affiliate links. | one file per item in `content/_market/` |
+| GAMES | What I am playing now and what I am trying out. | one file per game in `content/_games/` |
 
 ## Edit
 
 - **New post:** file in `content/_posts/` with `title:` and `date:` in the front matter, then Markdown. To link a post to a project add `projects: [homelab]` (the `key:` of the project). The post then shows a "Project" label, and the project page lists it under "Posts about this project".
 - **New Library tab:** file in `content/_library/` with `title:`, `tab:` (used in the URL, for example `#tools`) and `order:`.
-- **New Market item:** file in `content/_market/`:
+- **New game:** file in `content/_games/`:
 
       ---
-      title: Camera body
-      order: 1
-      price: "€250"
-      condition: Used, good
-      links:
-        - label: eBay
-          url: "https://www.ebay.de/..."
+      title: Valheim
+      status: playing      # playing = "Now playing", trying = "Trying out"
+      order: 4
+      link: "https://..."  # optional, makes the title a link
+      image: /static/img/games/valheim.jpg   # optional, adds a picture column
       ---
-      Description in Markdown.
+      A line or two about the game (optional).
 
-  Mark affiliate links with the label `Affiliate`.
 - **New Inventory item:** file in `content/_inventory/` with `title:`, `category:` (items with the same category are grouped), `order:`, `status:` and optional `links:`.
 - **Links in the black bar:** `_config.yml` (`github_url`, `discord_url`, `pixiv_url`, `twitter_url`). Leave `pixiv_url` empty until the account exists.
 - **Profile photo:** `static/img/profile.jpg`. **Background:** `static/img/background.jpg`, enabled in `static/css/theme.css`.

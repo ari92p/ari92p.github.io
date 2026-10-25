@@ -11,7 +11,7 @@ html[data-layout=center] .page{margin:0 auto}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .menu{display:flex;flex-direction:column;gap:11px;margin-left:24px}
 .nb{position:relative;display:block;width:63px;height:53px;background:#3d8198 no-repeat 0 0/63px 53px;image-rendering:pixelated;text-decoration:none}
-.nb-news{background-image:url(/static/img/btn-news.png)}.nb-projects{background-image:url(/static/img/btn-projects.png)}.nb-library{background-image:url(/static/img/btn-library.png)}.nb-inventory{background-image:url(/static/img/btn-inventory.png)}.nb-market{background-image:url(/static/img/btn-market.png)}
+.nb-news{background-image:url(/static/img/btn-news.png)}.nb-projects{background-image:url(/static/img/btn-projects.png)}.nb-library{background-image:url(/static/img/btn-library.png)}.nb-inventory{background-image:url(/static/img/btn-inventory.png)}.nb-games{background-image:url(/static/img/btn-games.png)}
 .nb span{position:absolute;left:-9999px}
 .nb:hover{filter:brightness(1.15)}
 .nb.on::before{content:"";position:absolute;left:-18px;top:12px;width:32px;height:24px;z-index:2;background:url(/static/img/arrow.png) no-repeat 0 0/32px 24px;image-rendering:pixelated}
@@ -107,7 +107,7 @@ a.hd-l:hover{text-decoration:underline}
 .lib h1,.lib h2{font:700 20px "Times New Roman",serif;margin:6px 0 10px}
 .lib h1.hd{font:700 20px/1.3 "Cinzel Decorative","Times New Roman",serif;text-align:center}
 
-/* ---- market ---- */
+/* ---- inventory and games lists ---- */
 .mk{width:100%;border-collapse:collapse;margin:6px 0 10px}
 .mk td{padding:12px 6px;border-bottom:1px solid #ccc;vertical-align:top}
 .mk-img{width:110px}.mk-img img,.mk-img .ph{width:100px;aspect-ratio:4/3;object-fit:cover;border:2px solid;border-color:#fff #777 #777 #fff}
@@ -254,3 +254,4 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .post h2:not(.hd){font:700 17px "Times New Roman",serif;margin:16px 0 6px}
 .post pre{overflow-x:auto;background:#eee;padding:6px 8px;margin:8px 0;font:13px ui-monospace,Menlo,monospace}
 .post pre code{background:none;padding:0}
+.gm-t{display:inline-block;margin:0 0 2px}

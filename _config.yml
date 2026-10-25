@@ -20,7 +20,7 @@ collections:
     permalink: /projects/:name/
   library:
     output: false
-  market:
+  games:
     output: false
   inventory:
     output: false
