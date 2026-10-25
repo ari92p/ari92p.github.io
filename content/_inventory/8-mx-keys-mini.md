@@ -1,7 +1,7 @@
 ---
 title: Logitech MX Keys Mini
 category: Keyboard and mouse
-order: 5
+order: 1
 links:
   - label: Amazon
     url: "https://www.amazon.de/dp/B07W6JNQ1Y"

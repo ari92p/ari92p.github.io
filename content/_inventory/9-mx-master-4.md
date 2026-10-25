@@ -1,7 +1,7 @@
 ---
 title: Logitech MX Master 4
 category: Keyboard and mouse
-order: 6
+order: 2
 links:
   - label: Amazon
     url: "https://www.amazon.de/dp/B0FHHSZ8WM"

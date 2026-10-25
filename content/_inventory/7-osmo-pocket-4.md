@@ -1,7 +1,7 @@
 ---
 title: DJI Osmo Pocket 4 (Creator Combo)
 category: Cameras
-order: 4
+order: 6
 links:
   - label: Amazon
     url: "https://www.amazon.de/dp/B0FKT9K6CB"

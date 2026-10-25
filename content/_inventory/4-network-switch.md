@@ -1,7 +1,7 @@
 ---
 title: UGREEN 2.5G LAN Switch (5 ports)
 category: Network & storage
-order: 2
+order: 4
 links:
   - label: UGREEN
     url: "https://fr.ugreen.com/products/55616eu"

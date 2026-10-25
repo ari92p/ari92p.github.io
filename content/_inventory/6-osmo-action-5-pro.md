@@ -1,7 +1,7 @@
 ---
 title: DJI Osmo Action 5 Pro (Adventure Combo)
 category: Cameras
-order: 3
+order: 5
 links:
   - label: Amazon
     url: "https://www.amazon.de/dp/B07FW4CZZL"
