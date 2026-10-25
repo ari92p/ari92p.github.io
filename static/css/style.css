@@ -271,6 +271,7 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 /* ---- music player in the black bar ---- */
 .mp{width:110px;margin:0;display:flex;flex-direction:column;gap:6px}
 .mp[hidden]{display:none}
+.mp-lcd{font:20px/1 "VT323",monospace;color:#5dff5d;background:linear-gradient(#0b2b0b,#041504);border:2px solid;border-color:#444 #cfcfcf #cfcfcf #444;text-shadow:0 0 5px #2c9c2c;height:46px;padding:4px 5px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;word-break:break-word}
 .mp-btns{display:flex;gap:4px}
 .mp-btns button{flex:1;height:26px;padding:0;background:#c6c6c6;color:#000;border:2px solid;border-color:#fff #444 #444 #fff;font:700 10px Arial,sans-serif;cursor:var(--cursor-default,pointer)}
 .mp-btns button:active{border-color:#444 #fff #fff #444}
