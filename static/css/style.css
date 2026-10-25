@@ -312,3 +312,7 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .mp-btns{gap:3px}
 .mp-btns button#mp-shuf,.mp-btns button#mp-loop{font-size:13px;line-height:1}
 .mp-btns button[aria-pressed="true"]{border-color:#444 #fff #fff #444;background:#a2a2a2}
+.mp-btns button{display:flex;align-items:center;justify-content:center}
+.mp-btns button svg{display:block;pointer-events:none}
+.mp-btns button.mp-tog{display:none}
+@media (max-width:640px){.mp-btns button.mp-tog{display:none}}
