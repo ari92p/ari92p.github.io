@@ -42,6 +42,7 @@ box.hidden=false;
 if(found>=0){ix=found;show()}else{if(early){audio.pause()}open(0,0,!!s0.p)}
 $('mp-play').addEventListener('click',function(){if(audio.paused){tryPlay()}else{wantPlay=false;audio.pause()}});
 $('mp-prev').addEventListener('click',function(){next(-1)});
+$('mp-tog').addEventListener('click',function(){var o=box.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');this.setAttribute('aria-label',o?'Hide playlist':'Show playlist');if(o)mark()});
 $('mp-next').addEventListener('click',function(){next(1)});
 $('mp-vol').value=Math.round(audio.volume*100);
 $('mp-vol').addEventListener('input',function(){audio.volume=this.value/100;save(true)});

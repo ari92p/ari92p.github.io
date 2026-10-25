@@ -283,3 +283,21 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .mp-list button:hover{background:#0f3f0f}
 .mp-list button.on{background:#2c9c2c;color:#fff}
 .mp-list button:focus-visible{outline:2px solid #e7a21e;outline-offset:-2px}
+
+.mp-tog{display:none}
+@media (max-width:640px){
+.side{gap:14px 12px;padding:12px 12px 14px}
+.menu{width:100%;justify-content:space-between;gap:4px}
+.slinks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
+.slinks .lg{width:auto;min-width:0;height:34px;padding:0 2px;font-size:15px}
+.slinks .lg.lcd{font-size:19px}
+.slinks .lg.tw{font-size:13px}
+.mp{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:6px 8px}
+.mp-lcd{grid-column:1;height:38px;font-size:18px;padding:2px 4px}
+.mp-time{grid-column:2;height:38px;font-size:20px}
+.mp-btns{grid-column:1}
+.mp-tog{display:block}
+.mp input[type=range]{grid-column:2;align-self:center}
+.mp-list{grid-column:1/-1;height:132px;margin:0}
+.mp:not(.open) .mp-list{display:none}
+}
