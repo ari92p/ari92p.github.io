@@ -4,7 +4,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{box-sizing:border-box}
 html{background:var(--bg-color) var(--bg-image,none) var(--bg-pos)/var(--bg-size) var(--bg-repeat) var(--bg-attach);min-height:100%;overflow-y:scroll;scrollbar-gutter:stable}
 body{margin:0;background:transparent;color:#000;font:16px/1.4 "Times New Roman",Times,serif}
-.page{max-width:830px;margin:0;display:grid;grid-template-columns:130px minmax(0,1fr);min-height:100vh;background:transparent}
+.page{max-width:830px;margin:0;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px);box-sizing:border-box;display:grid;grid-template-columns:130px minmax(0,1fr);min-height:100vh;background:transparent}
 html[data-layout=center] .page{margin:0 auto}
 .side{padding:8px 0 20px 8px;display:flex;flex-direction:column;align-items:flex-start;align-self:start}
 .photo{width:108px;height:108px;margin-bottom:18px;position:relative;border:8px solid;border-color:#8a8a8a #1c1c1c #141414 #5e5e5e;box-shadow:inset 0 0 0 1px #000;background:repeating-linear-gradient(45deg,#1d2b3a 0 6px,#16212d 6px 12px);display:grid;place-items:center;overflow:hidden}
@@ -287,13 +287,13 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 
 .mp-tog{display:none}
 @media (max-width:640px){
-.side{position:relative;gap:14px 12px;padding:12px 12px 14px}
+.side{position:relative;gap:14px 12px;padding:calc(12px + env(safe-area-inset-top,0px)) 12px 14px}
 .menu{justify-content:flex-start;gap:6px}
 .slinks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
 .slinks .lg{width:auto;min-width:0;height:34px;padding:0 2px;font-size:15px}
 .slinks .lg.lcd{font-size:19px}
 .slinks .lg.tw{font-size:13px}
-.mp{position:absolute;top:12px;right:12px;width:120px;display:flex;flex-direction:column;gap:4px}
+.mp{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;width:120px;display:flex;flex-direction:column;gap:4px}
 .mp-time,.mp input[type=range],.mp-list,.mp-tog{display:none}
 .mp-lcd{display:block;height:24px;line-height:19px;font-size:15px;padding:0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;word-break:normal}
 .mp-btns button{height:22px}
