@@ -2,6 +2,7 @@
 title: Final Fantasy Resonance
 status: playing
 order: 3
+link: "https://store.steampowered.com/app/3259780/"
 c1: "#1d7a8c"
 c2: "#2a1650"
 image: /static/img/games/final-fantasy-resonance.jpg
