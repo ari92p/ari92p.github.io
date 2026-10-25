@@ -12,35 +12,15 @@ permalink: /games.html
 {% assign trying = all | where: "status", "trying" %}
 
 <hr class="rule">
-<h2 class="hd">Now playing</h2>
+<h2 class="hd">Current Rotation</h2>
 {% if playing.size == 0 %}
 <p class="best">Nothing at the moment.</p>
 {% else %}
-<table class="mk">
-{% for g in playing %}
-<tr>
-{% if g.image %}<td class="mk-img"><img src="{{ g.image }}" alt="{{ g.title }}"></td>{% endif %}
-<td class="mk-txt">
-{% if g.link %}<a class="mk-t" href="{{ g.link }}"><b>{{ g.title }}</b></a>{% else %}<b class="gm-t">{{ g.title }}</b>{% endif %}
-{{ g.content | markdownify }}
-</td>
-</tr>
-{% endfor %}
-</table>
+{% include game-rows.html items=playing %}
 {% endif %}
 
 {% if trying.size > 0 %}
 <hr class="rule">
 <h2 class="hd">Trying out</h2>
-<table class="mk">
-{% for g in trying %}
-<tr>
-{% if g.image %}<td class="mk-img"><img src="{{ g.image }}" alt="{{ g.title }}"></td>{% endif %}
-<td class="mk-txt">
-{% if g.link %}<a class="mk-t" href="{{ g.link }}"><b>{{ g.title }}</b></a>{% else %}<b class="gm-t">{{ g.title }}</b>{% endif %}
-{{ g.content | markdownify }}
-</td>
-</tr>
-{% endfor %}
-</table>
+{% include game-rows.html items=trying %}
 {% endif %}
