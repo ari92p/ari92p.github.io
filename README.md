@@ -32,9 +32,10 @@ In the site root only the files that have to be there remain: `_config.yml`, `Ge
 
       ---
       title: Valheim
-      status: playing      # playing = "Now playing", trying = "Trying out"
+      status: playing      # playing = "Current Rotation", trying = "Trying out"
       order: 4
-      link: "https://..."  # optional, makes the title a link
+      store: steam         # steam or battlenet: picks the icon and name of the button
+      link: "https://..."  # the Steam or Battle.net page the button opens
       image: /static/img/games/valheim.jpg   # optional, adds a picture column
       ---
       A line or two about the game (optional).
