@@ -9,8 +9,7 @@ function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){re
 function save(force){var n=Date.now();if(!force&&n-savedAt<1000)return;savedAt=n;
 try{localStorage.setItem(KEY,JSON.stringify({i:ix,t:audio.currentTime||0,v:audio.volume,p:wantPlay&&!audio.paused}))}catch(e){}}
 function playable(f){var m=/\.ogg$/i.test(f)?'audio/ogg; codecs="vorbis"':'audio/mpeg';return audio.canPlayType(m)!==''}
-function clock(){var t=Math.floor(audio.currentTime||0);$('mp-time').textContent=('0'+Math.floor(t/60)).slice(-2)+':'+('0'+t%60).slice(-2)}
-function show(){$('mp-play').textContent=audio.paused?'▶':'❚❚';$('mp-play').setAttribute('aria-label',audio.paused?'Play':'Pause');clock()}
+function show(){$('mp-play').textContent=audio.paused?'▶':'❚❚';$('mp-play').setAttribute('aria-label',audio.paused?'Play':'Pause')}
 function open(i,at,play){ix=i;audio.src='/static/audio/'+encodeURIComponent(tracks[ix]);
 if(at){audio.addEventListener('loadedmetadata',function f(){audio.removeEventListener('loadedmetadata',f);try{audio.currentTime=at}catch(e){}})}
 show();if(play){wantPlay=true;var p=audio.play();if(p&&p.catch)p.catch(function(){wantPlay=false;show()})}save(true)}
@@ -30,7 +29,7 @@ audio.addEventListener('play',function(){show();save(true)});
 audio.addEventListener('pause',function(){show();save(true)});
 audio.addEventListener('ended',function(){next(1)});
 audio.addEventListener('error',function(){if(audio.src&&tracks.length>1)next(1)});
-audio.addEventListener('timeupdate',function(){clock();save(false)});
+audio.addEventListener('timeupdate',function(){save(false)});
 window.addEventListener('pagehide',function(){save(true)});
 }).catch(function(){});
 })();
