@@ -7,5 +7,4 @@ logo_class: silver
 summary: Taking my digital life back from big tech, one service at a time.
 note: Privacy, mail, passwords and DNS. Not a piece of software, an ongoing habit.
 permalink: /projects/personal/
-award_left: "De-<br>googled"
 ---
