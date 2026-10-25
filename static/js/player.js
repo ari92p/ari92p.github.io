@@ -37,7 +37,7 @@ fetch('/static/audio/playlist.json').then(function(r){return r.ok?r.json():[]}).
 d.forEach(function(s){s.tracks.forEach(function(t){if(playable(t.file))all.push(t)})});
 if(!all.length)return;
 seed=typeof s0.r==='number'?s0.r:Math.floor(Math.random()*4294967296);
-sh=s0.h!==false;lp=!!s0.l;order();
+lp=!!s0.l;sh=!lp&&s0.h!==false;order();
 var ul=$('mp-list');
 all.forEach(function(t){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.textContent=t.title;b.title=t.title;b.setAttribute('data-f',t.file);li.appendChild(b);ul.appendChild(li)});
 ul.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var f=b.getAttribute('data-f');for(var i=0;i<tracks.length;i++){if(tracks[i].file===f){open(i,0,true);break}}});
@@ -46,8 +46,8 @@ box.hidden=false;
 if(found>=0){ix=found;show()}else{if(early){audio.pause()}open(0,0,!!s0.p)}
 $('mp-play').addEventListener('click',function(){if(audio.paused){tryPlay()}else{wantPlay=false;audio.pause()}});
 $('mp-prev').addEventListener('click',function(){next(-1)});
-$('mp-shuf').addEventListener('click',function(){sh=!sh;order();modes();show();save(true)});
-$('mp-loop').addEventListener('click',function(){lp=!lp;modes();save(true)});
+$('mp-shuf').addEventListener('click',function(){sh=!sh;if(sh)lp=false;order();modes();show();save(true)});
+$('mp-loop').addEventListener('click',function(){lp=!lp;if(lp)sh=false;order();modes();show();save(true)});
 modes();
 $('mp-tog').addEventListener('click',function(){var o=box.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false');this.setAttribute('aria-label',o?'Hide playlist':'Show playlist');if(o)mark()});
 $('mp-next').addEventListener('click',function(){next(1)});

@@ -14,7 +14,7 @@ permalink: /inventory.html
 <h2 class="hd">{{ g.name }}</h2>
 <table class="mk">
 {% for m in g.items %}
-<tr>
+<tr{% unless m.image %} class="noimg"{% endunless %}>
 {% if m.image %}<td class="mk-img"><img src="{{ m.image }}" alt="{{ m.title }}"></td>{% endif %}
 <td class="mk-txt">
 {% if m.links.size > 0 %}<a class="mk-t" href="{{ m.links[0].url }}"><b>{{ m.title }}</b></a>{% else %}<b>{{ m.title }}</b>{% endif %}<br>

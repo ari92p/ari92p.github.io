@@ -21,9 +21,9 @@
 <link rel="preload" href="/static/fonts/vt323-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/static/fonts/caveat-brush-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/static/fonts/press-start-2p-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/static/css/fonts.css">
-<link rel="stylesheet" href="/static/css/style.css">
-<link rel="stylesheet" href="/static/css/theme.css">
+<link rel="stylesheet" href="/static/css/fonts.css?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="/static/css/style.css?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="/static/css/theme.css?v={{ site.time | date: '%s' }}">
 <script>document.documentElement.classList.add('js');try{document.documentElement.setAttribute("data-layout",localStorage.getItem("layout")||"center")}catch(e){document.documentElement.setAttribute("data-layout","center")}</script>
 </head>
 <body>
@@ -55,8 +55,7 @@
 <div class="mp" id="mp" hidden>
 <div class="mp-lcd" id="mp-title" aria-live="off"></div>
 <div class="mp-time" id="mp-time" aria-hidden="true">00:00 / --:--</div>
-<div class="mp-btns"><button type="button" id="mp-prev" aria-label="Previous track">&#9664;&#9664;</button><button type="button" id="mp-play" aria-label="Play">&#9654;</button><button type="button" id="mp-next" aria-label="Next track">&#9654;&#9654;</button><button type="button" id="mp-tog" class="mp-tog" aria-label="Show playlist" aria-expanded="false">&#9776;</button></div>
-<div class="mp-modes"><button type="button" id="mp-shuf" aria-pressed="true" title="Play in random order">Random</button><button type="button" id="mp-loop" aria-pressed="false" title="Repeat this song">Loop</button></div>
+<div class="mp-btns"><button type="button" id="mp-prev" aria-label="Previous track">&#9664;&#9664;</button><button type="button" id="mp-play" aria-label="Play">&#9654;</button><button type="button" id="mp-next" aria-label="Next track">&#9654;&#9654;</button><button type="button" id="mp-shuf" aria-pressed="true" aria-label="Random order" title="Random order">&#8644;</button><button type="button" id="mp-loop" aria-pressed="false" aria-label="Repeat this song" title="Repeat this song">&#8635;</button><button type="button" id="mp-tog" class="mp-tog" aria-label="Show playlist" aria-expanded="false">&#9776;</button></div>
 <input type="range" id="mp-vol" min="0" max="100" value="60" aria-label="Volume">
 <ul class="mp-list" id="mp-list" aria-label="Playlist"></ul>
 </div>
@@ -69,8 +68,8 @@
 <p class="foot">Last updated: {{ site.time | date: "%B %-d, %Y" }} · You have been here <span id="visits">1</span> time(s) (counted in your browser only) · © ari92p</p>
 </main>
 </div>
-<script src="/static/js/site.js"></script>
-<script src="/static/js/player.js"></script>
-<script src="/static/js/nav.js"></script>
+<script src="/static/js/site.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/static/js/player.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/static/js/nav.js?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>
