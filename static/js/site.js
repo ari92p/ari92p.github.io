@@ -42,12 +42,6 @@ postsRender=render;render();
 }
 window.addEventListener('hashchange',function(){if(tabHandler)tabHandler();if(postsRender)postsRender()});
 window.addEventListener('popstate',function(){if(postsRender)postsRender()});
-/* iPhone: after a pull-down refresh the page can come back scrolled up a little, under the clock. Reset that,
-   but never fight the reader once they scroll themselves. */
-var touched=false;['touchstart','wheel','keydown','mousedown'].forEach(function(ev){window.addEventListener(ev,function(){touched=true},{passive:true,capture:true})});
-function fixTop(){if(touched||location.hash)return;var y=window.pageYOffset||0;if(y>0&&y<=120)window.scrollTo(0,0)}
-window.addEventListener('pageshow',function(){touched=false;fixTop();setTimeout(fixTop,150);setTimeout(fixTop,500)});
-window.addEventListener('load',function(){fixTop();setTimeout(fixTop,300)});
 window.siteInit=init;
 init();
 })();
