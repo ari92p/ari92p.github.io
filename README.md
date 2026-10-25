@@ -44,7 +44,7 @@ In the site root only the files that have to be there remain: `_config.yml`, `Ge
 - **Links in the black bar:** `_config.yml` (`github_url`, `discord_url`, `pixiv_url`, `twitter_url`). Leave `pixiv_url` empty until the account exists.
 - **Profile photo:** `static/img/profile.jpg`. **Background:** `static/img/background.jpg`, enabled in `static/css/theme.css`.
 - **Menu buttons and arrow:** pixel images in `static/img/`, drawn by `_tools/make_buttons.py`.
-- **Music player:** put `.mp3` or `.ogg` files in `static/audio/` and run `python3 _tools/make_playlist.py`. The player (`static/js/player.js`) plays them in a fixed random order, starts by itself when the page opens (or on the first tap, if the browser blocks sound) and continues at the same spot after every page change. There is a short pause between pages.
+- **Music player:** put `.mp3` or `.ogg` files in `static/audio/` and run `python3 _tools/make_playlist.py`. The player (`static/js/player.js`) plays them in a fixed random order, starts by itself when the page opens (or on the first tap, if the browser blocks sound) and continues at the same spot after every page change. Page changes happen without a reload (`static/js/nav.js` swaps the page content), so the music keeps playing between pages. A browser refresh still stops it for a moment.
 - **Look of every page:** `_layouts/default.html` and `static/css/style.css`.
 
 ## Pictures that are not there yet
