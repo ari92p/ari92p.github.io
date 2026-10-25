@@ -1,6 +1,7 @@
 ---
 title: Thinking about moving from Tuta to Aster Mail
 date: 2026-10-25 08:00:00
+projects: [personal]
 ---
 When I started to de-google my life, email was the first thing I wanted out of Gmail. It is the account everything else hangs on, and it holds years of my history. So I moved to [Tuta Mail](https://tuta.com), and it has served me well.
 
