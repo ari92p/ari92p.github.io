@@ -7,7 +7,7 @@
 <td class="mk-txt">
 <b class="gm-name">{{ g.title }}</b>
 {{ g.content | markdownify }}
-{% if g.link %}<p class="store-row"><a class="store store-{{ g.store | default: 'web' }}" href="{{ g.link }}">{% if g.store == 'steam' %}<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="10.5" cy="5.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="4.2" cy="11.8" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.3 10.9 L8.6 8.4" stroke="currentColor" stroke-width="1.6"/></svg>Steam{% elsif g.store == 'battlenet' %}<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 1.5 C11.8 3 14 6 13 9.6 C12.3 12 10.2 13.8 8 14.6 C5.8 13.8 3.7 12 3 9.6 C2 6 4.2 3 8 1.5 Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 5 V11" stroke="currentColor" stroke-width="1.6"/></svg>Battle.net{% else %}Website{% endif %}</a></p>{% endif %}</td>
+{% if g.link %}<p class="store-row"><a class="store store-{{ g.store | default: 'web' }}" href="{{ g.link }}">{% if g.store == 'steam' %}<img src="/static/img/icons/steam.svg" width="16" height="16" alt="">Steam{% elsif g.store == 'battlenet' %}<img src="/static/img/icons/battlenet.svg" width="16" height="16" alt="">Battle.net{% else %}Website{% endif %}</a></p>{% endif %}</td>
 </tr>
 {% endfor %}
 </table>
