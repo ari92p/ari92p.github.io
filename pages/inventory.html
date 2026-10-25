@@ -1,0 +1,26 @@
+---
+layout: default
+title: Inventory
+nav: inventory
+permalink: /inventory.html
+---
+<h1 class="wel">Inventory</h1>
+<p class="best">Things I own and use: hardware, setups and settings. Links marked <b>Affiliate</b> may earn me a small commission at no extra cost to you.</p>
+
+{% assign inv = site.inventory %}
+{% assign groups = inv | sort: "order" | group_by: "category" %}
+{% for g in groups %}
+<hr class="rule">
+<h2 class="hd">{{ g.name }}</h2>
+<table class="mk">
+{% for m in g.items %}
+<tr>
+{% if m.image %}<td class="mk-img"><img src="{{ m.image }}" alt="{{ m.title }}"></td>{% endif %}
+<td class="mk-txt">
+{% if m.links.size > 0 %}<a class="mk-t" href="{{ m.links[0].url }}"><b>{{ m.title }}</b></a>{% else %}<b>{{ m.title }}</b>{% endif %}<br>
+{{ m.content | markdownify }}
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endfor %}

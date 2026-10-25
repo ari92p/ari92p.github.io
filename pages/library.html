@@ -1,0 +1,15 @@
+---
+layout: default
+title: Library
+nav: library
+permalink: /library.html
+---
+{% assign tabs = site.library | sort: "order" %}
+<div class="tabs" role="tablist">
+{% for t in tabs %}<a href="#{{ t.tab }}" data-tab="{{ t.tab }}">{{ t.title }}</a>{% endfor %}
+</div>
+{% for t in tabs %}
+<div class="tp lib" id="p-{{ t.tab }}">
+{{ t.content | markdownify }}
+</div>
+{% endfor %}

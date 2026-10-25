@@ -1,0 +1,48 @@
+# Site settings. Edit the links here, they are used on every page.
+title: ari92p
+description: Personal web site of ari92p
+lang: en
+url: "https://ari92p.github.io"
+
+github_url: "https://github.com/ari92p"
+discord_url: ""                                  # optional invite link, then the button opens it instead
+pixiv_url: "https://www.pixiv.net/en/users/130475450"
+twitter_url: "https://x.com/ari92p"
+discord_user: "mlemors"                          # shown and copied on click; add discord_url for an invite link
+
+collections_dir: content
+permalink: /blog/:title/
+markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  library:
+    output: false
+  market:
+    output: false
+  inventory:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: news
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      nav: projects
+
+exclude:
+  - vendor
+  - .bundle
+  - _site
+  - README.md
+  - Gemfile
+  - Gemfile.lock

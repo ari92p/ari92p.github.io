@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }} – {{ page.title }}</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+{% assign desc = page.description %}{% if desc == nil and page.summary %}{% assign desc = page.summary %}{% endif %}{% if desc == nil and page.date %}{% assign desc = page.excerpt | strip_html | strip_newlines | strip | truncate: 155 %}{% endif %}{% if desc == nil or desc == "" %}{% assign desc = site.description %}{% endif %}
+<meta name="description" content="{{ desc | escape }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site.title }} – {{ page.title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="/static/fonts/cinzel-decorative-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/cinzel-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/vt323-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/caveat-brush-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/press-start-2p-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/fonts.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/theme.css">
+<script>document.documentElement.classList.add('js');try{document.documentElement.setAttribute("data-layout",localStorage.getItem("layout")||"center")}catch(e){document.documentElement.setAttribute("data-layout","center")}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+<aside class="side">
+<div class="photo"><span>PHOTO</span><img src="/static/img/profile.jpg" alt="Profile photo of ari92p" onerror="this.remove()"></div>
+<div class="brand brand-side">ari92p</div>
+<nav class="menu">
+<a class="nb nb-news{% if page.nav == 'news' %} on{% endif %}" {% if page.nav == 'news' %}aria-current="page"{% endif %} href="/index.html" aria-label="News"><span>NEWS</span></a>
+<a class="nb nb-projects{% if page.nav == 'projects' %} on{% endif %}" {% if page.nav == 'projects' %}aria-current="page"{% endif %} href="/projects.html" aria-label="Projects"><span>PROJECTS</span></a>
+<a class="nb nb-library{% if page.nav == 'library' %} on{% endif %}" {% if page.nav == 'library' %}aria-current="page"{% endif %} href="/library.html" aria-label="Library"><span>LIBRARY</span></a>
+<a class="nb nb-inventory{% if page.nav == 'inventory' %} on{% endif %}" {% if page.nav == 'inventory' %}aria-current="page"{% endif %} href="/inventory.html" aria-label="Inventory"><span>INVENTORY</span></a>
+<a class="nb nb-market{% if page.nav == 'market' %} on{% endif %}" {% if page.nav == 'market' %}aria-current="page"{% endif %} href="/market.html" aria-label="Market"><span>MARKET</span></a>
+</nav>
+<hr class="thin">
+{% if page.features %}
+<p class="sf-h">Features</p>
+<ul class="sf">{% for f in page.features %}<li><img class="fico" src="/static/img/icons/{{ f.icon }}.png" width="64" height="64" alt="">{{ f.text }}</li>{% endfor %}</ul>
+<hr class="thin">
+{% endif %}
+<div class="slinks">
+<a class="lg silver" href="{{ site.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+{% if site.discord_url != "" %}<a class="lg lcd" href="{{ site.discord_url }}" target="_blank" rel="noopener noreferrer">discord</a>{% else %}<a class="lg lcd" href="#" data-copy="{{ site.discord_user }}" title="Click to copy my Discord name: {{ site.discord_user }}">discord</a>{% endif %}
+{% if site.pixiv_url != "" %}<a class="lg gold" href="{{ site.pixiv_url }}" target="_blank" rel="noopener noreferrer">Pixiv</a>{% else %}<span class="lg gold off" title="Coming soon">Pixiv</span>{% endif %}
+<a class="lg tw" href="{{ site.twitter_url }}" target="_blank" rel="noopener noreferrer">twitter</a>
+</div>
+</aside>
+<main class="content" id="main">
+<div class="brand brand-top">ari92p</div>
+{{ content | replace: 'href="http', 'target="_blank" rel="noopener noreferrer" href="http' | replace: '" target="_blank" rel="noopener noreferrer">', '">' }}
+<hr class="rule">
+<p class="lay">Layout: <a href="#" data-layout="left">left</a> | <a href="#" data-layout="center">centered</a></p>
+<p class="foot">Last updated: {{ site.time | date: "%B %-d, %Y" }} · You have been here <span id="visits">1</span> time(s) (counted in your browser only) · © ari92p</p>
+</main>
+</div>
+<script src="/static/js/site.js"></script>
+</body>
+</html>

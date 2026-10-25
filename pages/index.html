@@ -1,0 +1,31 @@
+---
+layout: default
+title: News
+nav: news
+permalink: /
+---
+<h1 class="wel">Welcome to <b>ari92p</b>'s web site</h1>
+<p class="best">This site is best viewed with <a href="https://en.wikipedia.org/wiki/Netscape_Navigator">Netscape Navigator</a> or <a href="https://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer</a>. Any other browser works too.</p>
+<div class="item intro">
+<div class="art"><img src="/static/img/home-art.jpg" width="150" height="184" alt="Black and white pencil drawing of an armored orc warrior, signed Samwise 96"><small>Artwork signed Samwise, 1996</small></div>
+<p>Bored developer doing stuff.</p>
+<p>Usually that means building small tools that fix things that annoy me, like the ones on the <a href="/projects.html">Projects</a> page. I also run a homelab, my current favorite hobby. I currently learn how to skate on my cruiser board, fell down only twice.</p>
+<p>Always happy to contribute. Just assign me an issue on github.</p>
+</div>
+<div class="listbar"><p class="pager" id="pager-top"></p><p class="sortbar" id="sortbar"></p></div>
+<div id="posts" data-per="5">
+{% for post in site.posts %}
+<article class="post" data-ts="{{ post.date | date: '%s' }}">
+<hr class="rule">
+<div class="item">
+<h2 class="hd"><a class="hd-l" href="{{ post.url }}">{{ post.title }}</a></h2>
+<p class="newsdate"><b>{{ post.date | date: "%B %-d, %Y" }}</b></p>
+{% if post.projects.size > 0 %}<p class="ptags">Project: {% for k in post.projects %}{% assign pj = site.projects | where: "key", k | first %}{% if pj %}<a class="ptag" href="{{ pj.url }}">{{ pj.title }}</a>{% endif %}{% endfor %}</p>{% endif %}
+{{ post.content }}
+</div>
+</article>
+{% endfor %}
+</div>
+<p class="pager" id="pager"></p>
+<hr class="rule">
+<p class="small">This site sets no cookies and has no trackers.</p>
