@@ -1,0 +1,283 @@
+[
+ {
+  "name": "Elwynn Forest",
+  "tracks": [
+   {
+    "file": "DayForest01.mp3",
+    "title": "Day Forest 1"
+   },
+   {
+    "file": "DayForest02.mp3",
+    "title": "Day Forest 2"
+   },
+   {
+    "file": "DayForest03.mp3",
+    "title": "Day Forest 3"
+   },
+   {
+    "file": "EnchantedForest01.mp3",
+    "title": "Enchanted Forest 1"
+   },
+   {
+    "file": "EnchantedForest02.mp3",
+    "title": "Enchanted Forest 2"
+   },
+   {
+    "file": "EnchantedForest03.mp3",
+    "title": "Enchanted Forest 3"
+   },
+   {
+    "file": "EnchantedForest04.mp3",
+    "title": "Enchanted Forest 4"
+   },
+   {
+    "file": "EnchantedForest05.mp3",
+    "title": "Enchanted Forest 5"
+   },
+   {
+    "file": "ForestHighNight.ogg",
+    "title": "Forest High Night"
+   },
+   {
+    "file": "ForestNormalDay.ogg",
+    "title": "Forest Normal Day"
+   },
+   {
+    "file": "ForestNormalNight.ogg",
+    "title": "Forest Normal Night"
+   },
+   {
+    "file": "NightForest01.mp3",
+    "title": "Night Forest 1"
+   },
+   {
+    "file": "NightForest02.mp3",
+    "title": "Night Forest 2"
+   },
+   {
+    "file": "NightForest03.mp3",
+    "title": "Night Forest 3"
+   },
+   {
+    "file": "NightForest04.mp3",
+    "title": "Night Forest 4"
+   }
+  ]
+ },
+ {
+  "name": "Westfall",
+  "tracks": [
+   {
+    "file": "MUS_Westfall_GU01.mp3",
+    "title": "Westfall 1"
+   },
+   {
+    "file": "MUS_Westfall_GU02.mp3",
+    "title": "Westfall 2"
+   },
+   {
+    "file": "MUS_Westfall_GU03.mp3",
+    "title": "Westfall 3"
+   },
+   {
+    "file": "MUS_Westfall_GU04.mp3",
+    "title": "Westfall 4"
+   },
+   {
+    "file": "WestfallDay.ogg",
+    "title": "Westfall Day"
+   },
+   {
+    "file": "WestfallNight.ogg",
+    "title": "Westfall Night"
+   }
+  ]
+ },
+ {
+  "name": "Stormwind",
+  "tracks": [
+   {
+    "file": "MUS_Stormwind_GU01.mp3",
+    "title": "Stormwind 1"
+   },
+   {
+    "file": "MUS_Stormwind_GU02.mp3",
+    "title": "Stormwind 2"
+   },
+   {
+    "file": "MUS_Stormwind_GU03.mp3",
+    "title": "Stormwind 3"
+   },
+   {
+    "file": "MUS_Stormwind_GU04.mp3",
+    "title": "Stormwind 4"
+   },
+   {
+    "file": "stormwind01-moment.mp3",
+    "title": "Stormwind 1 moment"
+   },
+   {
+    "file": "stormwind02-moment.mp3",
+    "title": "Stormwind 2 moment"
+   },
+   {
+    "file": "stormwind03-moment.mp3",
+    "title": "Stormwind 3 moment"
+   },
+   {
+    "file": "stormwind04-zone.mp3",
+    "title": "Stormwind 4 zone"
+   },
+   {
+    "file": "stormwind05-zone.mp3",
+    "title": "Stormwind 5 zone"
+   },
+   {
+    "file": "stormwind06-zone.mp3",
+    "title": "Stormwind 6 zone"
+   },
+   {
+    "file": "stormwind07-zone.mp3",
+    "title": "Stormwind 7 zone"
+   },
+   {
+    "file": "stormwind08-zone.mp3",
+    "title": "Stormwind 8 zone"
+   },
+   {
+    "file": "stormwind_highSeas-moment.mp3",
+    "title": "Stormwind high Seas moment"
+   },
+   {
+    "file": "StormwindDay.ogg",
+    "title": "Stormwind Day"
+   },
+   {
+    "file": "StormwindNight.ogg",
+    "title": "Stormwind Night"
+   }
+  ]
+ },
+ {
+  "name": "Taverns and inns",
+  "tracks": [
+   {
+    "file": "RA_HumanTavern1A.mp3",
+    "title": "Human Tavern 1A"
+   },
+   {
+    "file": "RA_HumanTavern1B.mp3",
+    "title": "Human Tavern 1B"
+   },
+   {
+    "file": "RA_HumanTavern2A.mp3",
+    "title": "Human Tavern 2A"
+   },
+   {
+    "file": "RA_HumanTavern2B.mp3",
+    "title": "Human Tavern 2B"
+   },
+   {
+    "file": "RA_PirateTavern1A.mp3",
+    "title": "Pirate Tavern 1A"
+   },
+   {
+    "file": "RA_PirateTavern1B.mp3",
+    "title": "Pirate Tavern 1B"
+   },
+   {
+    "file": "RA_PirateTavern2A.mp3",
+    "title": "Pirate Tavern 2A"
+   },
+   {
+    "file": "RA_PirateTavern2B.mp3",
+    "title": "Pirate Tavern 2B"
+   },
+   {
+    "file": "RA_PirateTavern3A.mp3",
+    "title": "Pirate Tavern 3A"
+   },
+   {
+    "file": "RA_PirateTavern3B.mp3",
+    "title": "Pirate Tavern 3B"
+   },
+   {
+    "file": "RA_TaurenRestArea1A.mp3",
+    "title": "Tauren Rest Area 1A"
+   },
+   {
+    "file": "RA_TaurenRestArea1B.mp3",
+    "title": "Tauren Rest Area 1B"
+   },
+   {
+    "file": "RA_TaurenRestArea2A.mp3",
+    "title": "Tauren Rest Area 2A"
+   },
+   {
+    "file": "RA_TaurenRestArea2B.mp3",
+    "title": "Tauren Rest Area 2B"
+   },
+   {
+    "file": "RA_TaurenRestArea3A.mp3",
+    "title": "Tauren Rest Area 3A"
+   },
+   {
+    "file": "RA_TaurenRestArea3B.mp3",
+    "title": "Tauren Rest Area 3B"
+   },
+   {
+    "file": "RA_Tavern1_RevisitedA.mp3",
+    "title": "Tavern 1 Revisited A"
+   },
+   {
+    "file": "RA_Tavern1_RevisitedB.mp3",
+    "title": "Tavern 1 Revisited B"
+   }
+  ]
+ },
+ {
+  "name": "More music",
+  "tracks": [
+   {
+    "file": "MUS_51_ForTheAlliance_02.mp3",
+    "title": "For The Alliance 2"
+   },
+   {
+    "file": "MUS_51_ForTheAlliance_03.mp3",
+    "title": "For The Alliance 3"
+   },
+   {
+    "file": "MUS_70_AnduinPt1_A1.mp3",
+    "title": "Anduin Pt 1 A 1"
+   },
+   {
+    "file": "MUS_70_AnduinPt1_D.mp3",
+    "title": "Anduin Pt 1 D"
+   },
+   {
+    "file": "MUS_70_AnduinPt1_H2.mp3",
+    "title": "Anduin Pt 1 H 2"
+   },
+   {
+    "file": "MUS_70_CanticleofSacrifice_C.mp3",
+    "title": "Canticle of Sacrifice C"
+   },
+   {
+    "file": "MUS_70_CanticleofSacrifice_D.mp3",
+    "title": "Canticle of Sacrifice D"
+   },
+   {
+    "file": "MUS_Aftermath_UU01.mp3",
+    "title": "Aftermath 1"
+   },
+   {
+    "file": "MUS_Goblin_UU47.mp3",
+    "title": "Goblin 47"
+   },
+   {
+    "file": "MUS_Shadows_UU01.mp3",
+    "title": "Shadows 1"
+   }
+  ]
+ }
+]
