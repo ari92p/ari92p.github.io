@@ -54,7 +54,7 @@ code{font:13px ui-monospace,Menlo,monospace;background:#eee;padding:0 3px}
 .tp{display:none;text-align:center;padding:10px 0}
 .tp.on{display:block}
 .foot{font-size:11px;color:#444;text-align:center;margin:0}
-.lay{margin:6px 0 0;font-size:11px;text-align:center;color:#444}
+.lay{margin:6px 0 0;font-size:11px;text-align:center;color:#444;display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px}
 @media (max-width:640px){
 .page{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start}
 .side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:34px 14px;padding:12px 12px 14px 14px;min-width:0}

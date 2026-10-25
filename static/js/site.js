@@ -18,6 +18,7 @@ document.querySelectorAll('a[data-copy]').forEach(function(a){a.addEventListener
 function done(){a.textContent='copied';a.classList.add('copied');setTimeout(function(){a.textContent=old;a.classList.remove('copied')},1300)}
 function fallback(){var t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(x){}document.body.removeChild(t);done()}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}})});
+document.querySelectorAll('a[data-top]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})});
 var box=document.getElementById('posts');
 if(box){
 var per=parseInt(box.getAttribute('data-per')||'5',10);

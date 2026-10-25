@@ -5,7 +5,7 @@ var cur=location.pathname,token=0;
 function internal(a){
 if(!a||!a.href||a.origin!==location.origin)return false;
 if(a.target&&a.target!=='_self')return false;
-if(a.hasAttribute('download')||a.hasAttribute('data-copy')||a.hasAttribute('data-layout'))return false;
+if(a.hasAttribute('download')||a.hasAttribute('data-copy')||a.hasAttribute('data-layout')||a.hasAttribute('data-top'))return false;
 if(/^\/static\//.test(a.pathname)||/\.(pdf|zip|png|jpe?g|gif|webp|svg|mp3|ogg|xml|json|txt)$/i.test(a.pathname))return false;
 if(a.pathname===location.pathname&&a.hash)return false;
 return true}
