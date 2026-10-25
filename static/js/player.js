@@ -13,7 +13,7 @@ for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),k=a[i];a[i]=a[j];a[j]=
 function order(){var f=tracks[ix]?tracks[ix].file:null;tracks=sh?shuffle(all.slice(),seed):all.slice();
 if(f){for(var i=0;i<tracks.length;i++){if(tracks[i].file===f){ix=i;break}}}}
 function modes(){var a=$('mp-shuf'),b=$('mp-loop');a.setAttribute('aria-pressed',sh?'true':'false');b.setAttribute('aria-pressed',lp?'true':'false');
-a.classList.toggle('on',sh);b.classList.toggle('on',lp);audio.loop=lp}
+a.classList.toggle('on',sh);b.classList.toggle('on',lp);audio.loop=false}
 function playable(f){var m=/\.ogg$/i.test(f)?'audio/ogg; codecs="vorbis"':'audio/mpeg';return audio.canPlayType(m)!==''}
 function src(f){return '/static/audio/'+encodeURIComponent(f)}
 function fmt(t){if(!isFinite(t))return '--:--';t=Math.floor(t);return ('0'+Math.floor(t/60)).slice(-2)+':'+('0'+t%60).slice(-2)}
