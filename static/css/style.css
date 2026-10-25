@@ -289,7 +289,7 @@ a[href^="http"],a[href^="//"]{cursor:var(--cursor-link,pointer)}
 .mp-tog{display:none}
 @media (max-width:640px){
 .side{position:relative;gap:14px 12px;padding:12px 12px 14px}
-.menu{justify-content:flex-start;gap:6px}
+.menu{width:100%;justify-content:space-between;gap:6px}
 .slinks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
 .slinks .lg{width:auto;min-width:0;height:34px;padding:0 2px;font-size:15px}
 .slinks .lg.lcd{font-size:19px}
