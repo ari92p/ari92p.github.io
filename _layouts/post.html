@@ -6,4 +6,6 @@ nav: news
 <p class="best">{{ page.date | date: "%B %-d, %Y" }} · <a href="/index.html">&laquo; back to the news</a></p>
 <hr class="rule">
 {% if page.projects.size > 0 %}<p class="ptags">Project: {% for k in page.projects %}{% assign pj = site.projects | where: "key", k | first %}{% if pj %}<a class="ptag" href="{{ pj.url }}">{{ pj.title }}</a>{% endif %}{% endfor %}</p>{% endif %}
+<div class="post">
 {{ content }}
+</div>

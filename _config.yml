@@ -13,6 +13,9 @@ discord_user: "mlemors"                          # shown and copied on click; ad
 collections_dir: content
 permalink: /blog/:title/
 markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true                                # plain code blocks, Rouge classes clash with the site CSS (.nb)
 
 collections:
   projects:
