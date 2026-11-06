@@ -10,6 +10,7 @@ The tool for this is [Remotion](https://www.remotion.dev/). It lets you write a 
 
 The smallest useful example:
 
+{% raw %}
 ```tsx
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
 
@@ -31,6 +32,7 @@ export const Hello = () => {
   );
 };
 ```
+{% endraw %}
 
 Nothing in it moves on its own. The word "Hello" has a size and an opacity that are calculated from the frame number. That has two big advantages for an AI:
 
