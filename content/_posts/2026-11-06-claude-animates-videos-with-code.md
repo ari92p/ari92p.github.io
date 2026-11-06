@@ -100,48 +100,16 @@ The quality of a video is the size of this library. If a video needs something t
 
 ## Where the pictures come from
 
-All pictures are generated locally with [ComfyUI](https://github.com/comfyanonymous/ComfyUI) on your own GPU. ComfyUI is a node-based image tool, but it also has an HTTP API, and that is what makes it usable for Claude: a script sends a workflow as JSON and gets a PNG back.
+All pictures are generated locally with ComfyUI, which has an HTTP API: a script sends a workflow as JSON and gets a PNG back. How to install it, write that script and keep a character consistent is in the previous post, [How to generate images locally with ComfyUI](/blog/how-to-generate-images-locally-with-comfyui/). Here is only what is special for video.
 
-Two models are enough, for two jobs:
+### What a video needs from the pictures
 
-| Model | Used for | Speed (1024 px) |
-| --- | --- | ---: |
-| Qwen-Image 2.1 (edit) | Characters in new poses, objects in the same style as a reference picture | 25 to 40 s |
-| Krea 2 Turbo | Fresh pictures from text: backdrops, props, style LoRAs | about 8 s |
+- **One character, many poses.** Every pose is an edit of the same approved hero image, with a fixed style paragraph in the prompt and a new seed each time. Poses that turn out well go into a library, so the next video doesn't need to generate them again.
+- **Flat background, then cut out.** Characters and props are generated on a plain colour and cut out, so they become separate layers that Remotion can move on their own: the character, a speech bubble and a falling object.
+- **Close-ups sit flush on the lower edge.** Image models often paint a closing edge at the bottom, which makes the figure float above the edge of the video. A small script crops all poses of a character by the same amount.
+- **Backdrops are scaled, never cropped.** See the tips below.
 
-### Keeping a character the same
-
-The hard part of AI images is not one good picture, it is the same character in forty pictures. What works:
-
-1. **One hero image.** The character is created once and approved by a human. It is never overwritten.
-2. **Always edit the hero.** Every new pose is an *edit* of the hero picture, with the hero as `<image1>` in the prompt. Never use the last generated picture as input. Faces drift a little with every generation, and after ten copies it is a different person.
-3. **A fixed style block.** The same paragraph is pasted into every prompt:
-
-```
-Draw the person from <image1> in a new pose. Waist-up close-up, facing the viewer.
-She rests one finger on her chin and looks up thoughtfully.
-Keep exactly the same person, face, hair, beanie, clothes, proportions and cozy
-chibi comic drawing style as <image1> (thick smooth dark brown-black outlines,
-simple solid black oval dot eyes, warm muted earthy colours, soft subtle shading).
-Only this one person, nobody else. Plain flat cream background (#FBF5E9),
-nothing else, no text, no frame.
-```
-
-4. **A new random seed for every edit.** If you edit with the same seed that made the input picture, the model repeats its own noise and returns an over-sharpened copy.
-5. **Don't guess in descriptions.** If the character description says "elf" and the picture shows no elf, that wrong word is sent with every prompt and bends the face.
-
-Backdrops and props use the same trick with a *style reference*: the logo picture is `<image1>`, and the prompt says "draw a new picture in exactly the drawing style of image 1, no people". That keeps everything in one look.
-
-### Flat background, then cut out
-
-Every character and prop is generated on a plain flat colour, never inside a scene. A background-removal model (BiRefNet, as a ComfyUI node) makes a mask from it, and the mask becomes the alpha channel of the PNG. Two small cleanups matter:
-
-- Semi-transparent edge pixels still contain the old background colour and give a light fringe. A script removes the background colour from them.
-- Close-ups are cropped at the bottom so that the figure sits flush on the lower edge of the video, instead of floating above it.
-
-Cut-outs are the reason the animation looks alive: the character, a speech bubble and a falling object are separate layers that Remotion can move on their own.
-
-### Jobs as a JSON file
+### Claude writes the job lists
 
 Claude doesn't click in the ComfyUI interface. It writes a list of jobs, and a script runs them:
 
@@ -151,7 +119,6 @@ Claude doesn't click in the ComfyUI interface. It writes a list of jobs, and a s
   "jobs": [
     {
       "name": "she_close_curious",
-      "engine": "qwen",
       "size": [1024, 1024],
       "seeds": [3001, 3002],
       "prompt": "Draw the person from <image1> in a new pose ...",
@@ -161,43 +128,7 @@ Claude doesn't click in the ComfyUI interface. It writes a list of jobs, and a s
 }
 ```
 
-Each seed becomes one picture (`she_close_curious_s3001.png`), and existing files are skipped. The seeds are in the file name, so a good picture can be reproduced later. Poses that turn out well go into a library, so the next video doesn't need to generate them again.
-
-### The same thing in plain Python
-
-You can do the same with a few lines of Python. In ComfyUI open your workflow and use *Save (API Format)* (you may need to enable dev mode options in the settings). Then:
-
-```python
-import json, random, time, urllib.request, uuid
-
-BASE = "http://127.0.0.1:8188"
-
-def post(path, data):
-    req = urllib.request.Request(BASE + path, json.dumps(data).encode(),
-                                 {"Content-Type": "application/json"})
-    return json.load(urllib.request.urlopen(req))
-
-workflow = json.load(open("workflow_api.json"))
-workflow["6"]["inputs"]["text"] = "a cozy kitchen, no people, flat colours"   # your prompt node id
-workflow["3"]["inputs"]["seed"] = random.randint(0, 2**32)                     # your sampler node id
-
-prompt_id = post("/prompt", {"prompt": workflow, "client_id": str(uuid.uuid4())})["prompt_id"]
-
-while True:                                    # wait until the job is done
-    history = json.load(urllib.request.urlopen(f"{BASE}/history/{prompt_id}"))
-    if prompt_id in history:
-        break
-    time.sleep(1)
-
-for node in history[prompt_id]["outputs"].values():
-    for img in node.get("images", []):
-        url = f"{BASE}/view?filename={img['filename']}&subfolder={img['subfolder']}&type={img['type']}"
-        open(img["filename"], "wb").write(urllib.request.urlopen(url).read())
-```
-
-The numbers `"6"` and `"3"` are the node ids in your own exported file. Open it and look for the text and seed inputs. If ComfyUI runs on another machine, forward its port with SSH (`ssh -L 8188:127.0.0.1:8188 pc`), so you don't have to expose it to your network.
-
-Once this works, Claude can take over: tell it where the script is and what the workflow file expects, and it writes the job files and checks the results.
+Each seed becomes one picture, and existing files are skipped. Then Claude looks at the results, picks the good ones and has the rest generated again.
 
 ## Checking what is on screen
 
@@ -244,7 +175,7 @@ npx remotion render src/index.ts Hello out/hello.mp4
 
 **5. Add a voice.** Generate the speech with a local TTS model, run Whisper over it with `word_timestamps=True`, and put the word list next to your code. Use the `frameOf` function above and tie each animation to a word. Add the audio with `<Audio src={staticFile("vo.wav")} />`.
 
-**6. Add pictures.** Install ComfyUI, load any image model, and use the script from the section above. Ask for a flat colour background behind the object, remove it, and place the cut-outs in the `public` folder of your Remotion project. Show them with `<Img src={staticFile("cutout.png")} />`. Layered cut-outs are what make the animation feel alive, because you can move them separately.
+**6. Add pictures.** Set up ComfyUI as in the [previous post](/blog/how-to-generate-images-locally-with-comfyui/) and use its script. Ask for a flat colour background behind the object, remove it, and place the cut-outs in the `public` folder of your Remotion project. Show them with `<Img src={staticFile("cutout.png")} />`. Layered cut-outs are what make the animation feel alive, because you can move them separately.
 
 No GPU? Use the tools you have for the pictures (any image generator, or free vector graphics) and let Remotion draw the rest. Shapes, text, charts and waves are plain SVG and need no images at all.
 
