@@ -1,7 +1,7 @@
 ---
 title: UGREEN DXP4800 Plus
 category: Network & storage
-order: 3
+order: 4
 links:
   - label: UGREEN
     url: "https://ai.ugreen.com/products/ugreen-nasync-dxp4800-plus-nas-storage"
