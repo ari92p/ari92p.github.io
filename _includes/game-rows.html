@@ -1,0 +1,13 @@
+<table class="mk gm">
+{% for g in include.items %}
+<tr>
+<td class="gm-l">
+{% if g.image %}<img class="gm-box" src="{{ g.image }}" width="120" height="160" alt="{{ g.title }}">{% else %}<div class="gm-box gm-cover" style="background:linear-gradient(160deg,{{ g.c1 | default: '#2b3a55' }},{{ g.c2 | default: '#0d1220' }})" aria-hidden="true"><span>{{ g.title }}</span></div>{% endif %}
+</td>
+<td class="mk-txt">
+<b class="gm-name">{{ g.title }}</b>
+{{ g.content | markdownify }}
+{% if g.link %}<p class="store-row"><a class="store store-{{ g.store | default: 'web' }}" href="{{ g.link }}">{% if g.store == 'steam' %}<img src="/static/img/icons/steam.svg" width="16" height="16" alt="">Steam{% elsif g.store == 'battlenet' %}<img src="/static/img/icons/battlenet.svg" width="16" height="16" alt="">Battle.net{% else %}Website{% endif %}</a></p>{% endif %}</td>
+</tr>
+{% endfor %}
+</table>

@@ -1,0 +1,16 @@
+---
+layout: default
+title: Projects
+nav: projects
+permalink: /projects.html
+---
+<h1 class="wel">Projects</h1>
+<p class="best">Things I built. Each project has its own page. Tools, guides and downloads are in the <a href="/library.html">Library</a>.</p>
+<hr class="rule">
+<table class="titles">
+{% assign list = site.projects | sort: "order" %}
+{% for p in list %}
+<tr><td class="tl"><a class="lg {{ p.logo_class }} sm" href="{{ p.url }}">{{ p.logo }}</a></td>
+<td><a href="{{ p.url }}"><b>{{ p.title }}</b></a><br><i>{{ p.summary }}</i><br><small>{{ p.note }}</small></td></tr>
+{% endfor %}
+</table>

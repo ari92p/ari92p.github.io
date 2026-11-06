@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }} – {{ page.title }}</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+{% assign desc = page.description %}{% if desc == nil and page.summary %}{% assign desc = page.summary %}{% endif %}{% if desc == nil and page.date %}{% assign desc = page.excerpt | strip_html | strip_newlines | strip | truncate: 155 %}{% endif %}{% if desc == nil or desc == "" %}{% assign desc = site.description %}{% endif %}
+<meta name="description" content="{{ desc | escape }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site.title }} – {{ page.title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="/static/fonts/cinzel-decorative-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/cinzel-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/vt323-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/caveat-brush-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/press-start-2p-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/fonts.css?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="/static/css/style.css?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="/static/css/theme.css?v={{ site.time | date: '%s' }}">
+<script>document.documentElement.classList.add('js');try{document.documentElement.setAttribute("data-layout",localStorage.getItem("layout")||"center")}catch(e){document.documentElement.setAttribute("data-layout","center")}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+<aside class="side">
+<div class="photo"><span>PHOTO</span><img src="/static/img/profile.jpg" alt="Profile photo of ari92p" onerror="this.remove()"></div>
+<div class="brand brand-side">ari92p</div>
+<nav class="menu">
+<a class="nb nb-news{% if page.nav == 'news' %} on{% endif %}" {% if page.nav == 'news' %}aria-current="page"{% endif %} href="/index.html" aria-label="News"><span>NEWS</span></a>
+<a class="nb nb-projects{% if page.nav == 'projects' %} on{% endif %}" {% if page.nav == 'projects' %}aria-current="page"{% endif %} href="/projects.html" aria-label="Projects"><span>PROJECTS</span></a>
+<a class="nb nb-library{% if page.nav == 'library' %} on{% endif %}" {% if page.nav == 'library' %}aria-current="page"{% endif %} href="/library.html" aria-label="Library"><span>LIBRARY</span></a>
+<a class="nb nb-inventory{% if page.nav == 'inventory' %} on{% endif %}" {% if page.nav == 'inventory' %}aria-current="page"{% endif %} href="/inventory.html" aria-label="Inventory"><span>INVENTORY</span></a>
+<a class="nb nb-games{% if page.nav == 'games' %} on{% endif %}" {% if page.nav == 'games' %}aria-current="page"{% endif %} href="/games.html" aria-label="Games"><span>GAMES</span></a>
+</nav>
+<hr class="thin">
+{% if page.features %}
+<p class="sf-h">Features</p>
+<ul class="sf">{% for f in page.features %}<li><img class="fico" src="/static/img/icons/{{ f.icon }}.png" width="64" height="64" alt="">{{ f.text }}</li>{% endfor %}</ul>
+<hr class="thin">
+{% endif %}
+<div class="slinks">
+<a class="lg silver" href="{{ site.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+{% if site.discord_url != "" %}<a class="lg lcd" href="{{ site.discord_url }}" target="_blank" rel="noopener noreferrer">discord</a>{% else %}<a class="lg lcd" href="#" data-copy="{{ site.discord_user }}" title="Click to copy my Discord name: {{ site.discord_user }}">discord</a>{% endif %}
+<a class="lg tw" href="{{ site.twitter_url }}" target="_blank" rel="noopener noreferrer">twitter</a>
+</div>
+<hr class="thin">
+<div class="mp" id="mp" hidden>
+<div class="mp-lcd" id="mp-title" aria-live="off"></div>
+<div class="mp-time" id="mp-time" aria-hidden="true">00:00 / --:--</div>
+<div class="mp-btns"><button type="button" id="mp-prev" aria-label="Previous track"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.2 3v10L1.8 8zM14.4 3v10L8 8z"/></svg></button><button type="button" id="mp-play" aria-label="Play"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 2v12l10-6z"/></svg></button><button type="button" id="mp-next" aria-label="Next track"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 3v10L14.2 8zM1.6 3v10L8 8z"/></svg></button><button type="button" id="mp-shuf" aria-pressed="true" aria-label="Random order" title="Random order"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M1.5 4.5h2.2c3.4 0 4.2 7 8 7h1.8M1.5 11.5h2.2c1.3 0 2.2-1.1 3-2.5M9.2 6.2c.8-1 1.6-1.7 2.5-1.7h1.8"/><path fill="currentColor" d="M12.6 8.6L15.2 11.5l-2.6 2.9zM12.6 1.6L15.2 4.5 12.6 7.4z"/></svg></button><button type="button" id="mp-loop" aria-pressed="false" aria-label="Repeat this song" title="Repeat this song"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2.2 8V6.8c0-1.9 1.4-3.3 3.3-3.3h5.6M13.8 8v1.2c0 1.9-1.4 3.3-3.3 3.3H4.9"/><path fill="currentColor" d="M10.4 .9l3.2 2.6-3.2 2.6zM5.6 9.9L2.4 12.5l3.2 2.6z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M7.3 6.4l1.1-.7v4.5"/></svg></button><button type="button" id="mp-tog" class="mp-tog" aria-label="Show playlist" aria-expanded="false"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button></div>
+<input type="range" id="mp-vol" min="0" max="100" value="60" aria-label="Volume">
+<ul class="mp-list" id="mp-list" aria-label="Playlist"></ul>
+</div>
+</aside>
+<main class="content" id="main">
+<div class="brand brand-top">ari92p</div>
+{{ content | replace: 'href="http', 'target="_blank" rel="noopener noreferrer" href="http' | replace: '" target="_blank" rel="noopener noreferrer">', '">' }}
+<hr class="rule">
+<p class="lay"><span>Layout: <a href="#" data-layout="left">left</a> | <a href="#" data-layout="center">centered</a></span><a class="totop" href="#main" data-top>Back to top &uarr;</a></p>
+<p class="foot">Last updated: {{ site.time | date: "%B %-d, %Y" }} · You have been here <span id="visits">1</span> time(s) (counted in your browser only) · © ari92p</p>
+</main>
+</div>
+<script src="/static/js/site.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/static/js/player.js?v={{ site.time | date: '%s' }}"></script>
+<script src="/static/js/nav.js?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

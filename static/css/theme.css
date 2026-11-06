@@ -1,0 +1,15 @@
+/* Theme settings. Edit this file to change the background.
+   To use a background image: put the file at static/img/background.jpg (or .png/.gif)
+   and remove the comment marks around the --bg-image line below. */
+:root{
+  /* Mouse pointer. Remove both lines to use the normal pointers again.
+     The two numbers are the hot spot (the pixel that clicks), counted from the top left. */
+  --cursor-default:url("/static/img/cursors/gauntlet.png") 2 2, auto;
+  --cursor-link:url("/static/img/cursors/pickup.png") 2 2, pointer;
+  --bg-color:#000;
+  /* --bg-image:url("/static/img/background.jpg"); */
+  --bg-repeat:repeat;      /* repeat = tile it, no-repeat = single image */
+  --bg-size:auto;          /* auto = original size, cover = fill the window */
+  --bg-pos:0 0;            /* for example: center top */
+  --bg-attach:scroll;      /* fixed = stays in place while scrolling */
+}

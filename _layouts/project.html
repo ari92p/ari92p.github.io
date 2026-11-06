@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div class="pj-head">
+{% if page.award_left %}<div class="award"><span>{{ page.award_left }}</span></div>{% else %}<div class="award gap"></div>{% endif %}
+<div class="pj-title">{{ page.title }}</div>
+{% if page.award_right %}<div class="award round"><span>{{ page.award_right }}</span></div>{% else %}<div class="award gap"></div>{% endif %}
+</div>
+{{ content }}
+{% assign related = site.posts | where_exp: "po", "po.projects contains page.key" %}
+{% if related.size > 0 %}
+<hr class="rule">
+<h2 class="hd">Posts about this project</h2>
+<ul class="rel">
+{% for po in related %}<li><b>{{ po.date | date: "%B %-d, %Y" }}</b> &ndash; <a href="{{ po.url }}">{{ po.title }}</a><br><small>{{ po.excerpt | strip_html | strip | truncate: 130 }}</small></li>
+{% endfor %}
+</ul>
+{% endif %}
+<hr class="rule">
+<p class="small"><a href="/projects.html">&laquo; back to all projects</a></p>
